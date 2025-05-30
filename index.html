@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Areias do Destino - Império Persa</title>
+    <style>
+        body {
+            background: linear-gradient(#f4e2d8, #c2b280);
+            font-family: 'Georgia', serif;
+            color: #4b3b2a;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fffaf0;
+            border: 5px solid #c19a6b;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px #c19a6b;
+        }
+        h1 {
+            text-align: center;
+            color: #a0522d;
+            text-shadow: 2px 2px #d2b48c;
+        }
+        .story {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #d2b48c;
+            color: #4b3b2a;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #a0522d;
+            color: white;
+        }
+        .header {
+            background-color: #8b5e3c;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2>🏛️ Areias do Destino - Império Persa 🏜️</h2>
+        </div>
+        <h1>Capítulo 1</h1>
+        <div class="story" id="story">
+            Você é <strong>Daryun</strong>, comandante do Império Persa sob o reinado de <strong>Ciro, o Grande</strong>.  
+            Um mensageiro chega apressado à sua tenda no meio do deserto dourado:  
+            "<em>Comandante! O reino de Lídia recusa-se a pagar tributos. O rei quer sua decisão imediatamente.</em>"
+        </div>
+
+        <div class="choices" id="choices">
+            <button onclick="chooseAttack()">⚔️ Atacar imediatamente</button>
+            <button onclick="chooseNegotiate()">🕊️ Negociar primeiro</button>
+        </div>
+    </div>
+
+    <script>
+        // Capítulo 1
+        function chooseAttack() {
+            document.getElementById("story").innerHTML = `
+                Você ordena o ataque. Suas tropas marcham sob o sol escaldante.  
+                As muralhas de Lídia caem após dois dias de cerco. Seu nome ecoa como um líder forte, porém temido.  
+                Durante o saque, seus generais encontram um templo cheio de ouro e relíquias sagradas.  
+                <br><br><strong>O que você fará?</strong>
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="saquear()">💰 Saquear o templo</button>
+                <button onclick="preservar()">🙏 Preservar o templo e doar parte do ouro</button>
+            `;
+        }
+
+        function chooseNegotiate() {
+            document.getElementById("story").innerHTML = `
+                Você decide negociar. O rei de Lídia, surpreso, aceita pagar tributos em troca de proteção persa.  
+                Porém, seus generais sussurram que você parece fraco. Eles sugerem uma nova ação:  
+                <br><br><strong>Deveríamos forçar o recrutamento dos jovens locais?</strong>
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="forcar()">👥 Forçar recrutamento</button>
+                <button onclick="incentivar()">🎖️ Oferecer benefícios para voluntários</button>
+            `;
+        }
+
+        // Caminhos do Capítulo 1 para Capítulo 2
+        function saquear() {
+            document.getElementById("story").innerHTML = `
+                Você saqueia o templo. Riquezas enchem seus cofres, mas rumores de desrespeito às divindades locais  
+                se espalham. Rebeliões podem surgir no futuro...  
+                <br><br><strong>Enquanto retorna a Persépolis, uma nova ameaça surge no horizonte: o Egito se recusa a se submeter ao império.</strong>
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="invadirEgito()">🏹 Invadir o Egito</button>
+                <button onclick="enviarEmissarios()">🕊️ Enviar emissários para o faraó</button>
+            `;
+        }
+
+        function preservar() {
+            document.getElementById("story").innerHTML = `
+                Você ordena que o templo seja preservado e doa parte do ouro aos sacerdotes.  
+                O povo local o vê como um líder justo e respeitável. Sua influência cresce.  
+                <br><br><strong>Porém, surge uma nova missão: o Egito se recusa a se submeter ao império.</strong>
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="invadirEgito()">🏹 Invadir o Egito</button>
+                <button onclick="enviarEmissarios()">🕊️ Enviar emissários para o faraó</button>
+            `;
+        }
+
+        function forcar() {
+            document.getElementById("story").innerHTML = `
+                Você força o recrutamento. Seu exército cresce rapidamente, mas o povo começa a nutrir ódio pela ocupação.  
+                <br><br><strong>Enquanto organiza as tropas, chega a notícia: o Egito desafia o Império Persa.</strong>
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="invadirEgito()">🏹 Invadir o Egito</button>
+                <button onclick="enviarEmissarios()">🕊️ Enviar emissários para o faraó</button>
+            `;
+        }
+
+        function incentivar() {
+            document.getElementById("story").innerHTML = `
+                Você oferece terras e ouro para quem se alistar. Jovens se apresentam de forma voluntária,  
+                criando um exército leal e motivado.  
+                <br><br><strong>Mas o desafio não para: o Egito se recusa a se submeter ao império.</strong>
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="invadirEgito()">🏹 Invadir o Egito</button>
+                <button onclick="enviarEmissarios()">🕊️ Enviar emissários para o faraó</button>
+            `;
+        }
+
+        // Capítulo 2
+        function invadirEgito() {
+            document.getElementById("story").innerHTML = `
+                Suas tropas atravessam o deserto do Sinai. Após semanas de marcha, encontram resistência feroz.  
+                O faraó, impiedoso, preparou armadilhas nas dunas e emboscadas no Nilo.  
+                <br><br><strong>Durante a batalha, surge uma oportunidade:</strong> capturar o próprio faraó ou destruir os grãos do Egito para forçá-los à rendição.
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="capturarFarao()">👑 Capturar o faraó</button>
+                <button onclick="queimarGraos()">🔥 Destruir os grãos do Egito</button>
+            `;
+        }
+
+        function enviarEmissarios() {
+            document.getElementById("story").innerHTML = `
+                Você envia emissários com presentes luxuosos: tapetes persas, ouro e cavalos.  
+                O faraó, desconfiado, exige que você entregue parte das terras da Mesopotâmia como acordo de paz.  
+                <br><br><strong>O que fazer?</strong>
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="aceitarTerras()">📝 Aceitar e firmar a paz</button>
+                <button onclick="recusarEGuerra()">⚔️ Recusar e declarar guerra</button>
+            `;
+        }
+
+        // Capítulo 3 – Desfechos
+        function capturarFarao() {
+            document.getElementById("story").innerHTML = `
+                Após uma emboscada brilhante, você captura o faraó.  
+                O Egito se rende sem mais resistência. O nome de Daryun ecoa como lenda em toda a Ásia.  
+                <br><br><strong>Você se torna o maior general da história persa.</strong> 🏆
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="restart()">🔄 Jogar Novamente</button>
+            `;
+        }
+
+        function queimarGraos() {
+            document.getElementById("story").innerHTML = `
+                Você ordena a destruição dos depósitos de grãos. A fome devasta o Egito.  
+                Eles se rendem, mas o povo te vê como cruel e opressor.  
+                <br><br><strong>O império cresce, mas a sua reputação cai no mundo.</strong> ⚠️
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="restart()">🔄 Jogar Novamente</button>
+            `;
+        }
+
+        function aceitarTerras() {
+            document.getElementById("story").innerHTML = `
+                Você aceita ceder parte da Mesopotâmia. O império evita uma guerra sangrenta,  
+                e novas rotas comerciais são abertas com o Egito.  
+                <br><br><strong>Você se torna mestre da diplomacia persa.</strong> 🕊️
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="restart()">🔄 Jogar Novamente</button>
+            `;
+        }
+
+        function recusarEGuerra() {
+            document.getElementById("story").innerHTML = `
+                Você recusa a oferta e declara guerra. Após uma batalha sangrenta no Delta do Nilo,  
+                suas tropas conquistam o Egito, mas com enormes perdas.  
+                <br><br><strong>Vitória amarga. O império se expande, mas o povo questiona os custos.</strong> ⚔️
+            `;
+            document.getElementById("choices").innerHTML = `
+                <button onclick="restart()">🔄 Jogar Novamente</button>
+            `;
+        }
+
+        // Reiniciar
+        function restart() {
+            location.reload();
+        }
+    </script>
+
+</body>
+</html>
